@@ -38,8 +38,23 @@ class Parking {
         }
         return 0;
     }
+    /**
+     * @description Nos devuelve "true" (coche en el parking) o "false" (no coche en el parking)
+     * @param {String} matricula coche a buscar
+     * @returns {Boolean}
+     */
+    BuscarCoche(matricula) {
+        if (this.coches.indexOf(matricula) >= 0) {
+            return true;
+        } else {
+            if (this.tunelLavado.indexOf(matricula) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 }
-
 let parking = new Parking(2);
 let coche1 = {
     matricula: "G3456745",
@@ -47,3 +62,5 @@ let coche1 = {
 }
 console.log(parking.MeterCoche(coche1));
 console.log(parking);
+console.log(parking.BuscarCoche("G3456745"));
+console.log("salir");
